@@ -10,6 +10,7 @@ import { InvoiceComponent } from './pages/invoice/invoice.component';
 import { HeaderComponent } from './pages/header/header.component';
 import { CustomerComponent } from './pages/customer/customer.component';
 import { PaperInvoiceComponent } from './pages/paper-invoice/paper-invoice.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PaperInvoiceComponent } from './pages/paper-invoice/paper-invoice.compo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
