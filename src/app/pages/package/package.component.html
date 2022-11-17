@@ -56,9 +56,10 @@
                                         <tr>
                                             <th>#</th>
                                             <th>ชื่อ</th>
+                                            <th>ชื่อ(EN)</th>
                                             <th>ราคา</th>
                                             <th>จำนวนภาพ</th>
-                                            <th>Description</th>
+                                            <!-- <th>Description</th> -->
                                             <th>แก้ไข Package</th>
                                         </tr>
                                     </thead>
@@ -66,18 +67,19 @@
                                         <tr *ngFor="let item of list_package; let i=index">
                                             <td>{{i+1}}</td>
                                             <td>{{item.name_item}} <ng-container *ngIf="item.size_item!=''">Size {{item.size_item}}</ng-container></td>
+                                            <td>{{item.name_item_en}} <ng-container *ngIf="item.size_item!=''">Size {{item.size_item}}</ng-container></td>
                                             <td>{{item.item_price}}</td>
                                             <td>{{item.num_pic}}</td>
-                                            <td>
+                                            <!-- <td>
                                                 <button type="button" class="btn btn-info" data-toggle="modal" 
                                                 (click)="get_package_desc(item)"
                                                 data-target="#edit_package_desc_modal" data-whatever="@mdo">
                                                     <i class="mdi mdi-table-edit"></i>
                                                 </button>
-                                            </td>
+                                            </td> -->
                                             <td>
                                                 <button type="button" class="btn btn-info" data-toggle="modal" 
-                                                (click)="edit_package(item)"
+                                                (click)="edit_package(item);get_package_desc(item)"
                                                 data-target="#edit_package_modal" data-whatever="@mdo">
                                                     <i class="mdi mdi-table-edit"></i>
                                                 </button>
@@ -90,10 +92,11 @@
                                         <tr>
                                             <td 
                                             colspan="6" style="text-align: center;">
-                                                <button class="btn btn-info" 
+                                                <button class="btn btn-info" style="width: 20vh;"
                                                 data-toggle="modal" data-target="#add_package_modal" data-whatever="@mdo"
                                                 (click)="clear_package_data();">
-                                                    <i class="mdi mdi-plus"></i>
+                                                    <!-- <i class="mdi mdi-plus"></i> -->
+                                                    New package
                                                 </button>
                                             </td>
                                         </tr>
@@ -160,6 +163,11 @@
                                                 id="package_name" [(ngModel)]="package_name">
                                             </div>
                                             <div class="form-group">
+                                                <label for="recipient-name" class="control-label">ชื่อ(EN):</label>
+                                                <input type="text" class="form-control" name="package_name_en"
+                                                id="package_name_en" [(ngModel)]="package_name_en">
+                                            </div>
+                                            <div class="form-group">
                                                 <label for="recipient-name" class="control-label">size:</label>
                                                 <input type="text" class="form-control" name="package_size"
                                                 id="package_size" [(ngModel)]="package_size">
@@ -196,36 +204,143 @@
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form>
-                                            <div class="form-group">
-                                                <label for="recipient-name" class="control-label">ชื่อ:</label>
-                                                <input type="text" class="form-control" name="package_name"
-                                                id="package_name" [(ngModel)]="package_name">
+                                        <ul class="nav nav-tabs">
+                                            <li class="nav-item">
+                                              <a class="nav-link active text-dark" data-toggle="tab" 
+                                              href="#package_info">Information</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link text-dark" data-toggle="tab" 
+                                                href="#package_desc">Description</a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content" id="myTabContent">
+                                            <div class="tab-pane fade show active" id="package_info" 
+                                            role="tabpanel">
+                                                <form class="pt-2">
+                                                    <div class="form-group">
+                                                        <label for="recipient-name" class="control-label">ชื่อ:</label>
+                                                        <input type="text" class="form-control" name="package_name"
+                                                        id="package_name" [(ngModel)]="package_name">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="recipient-name" class="control-label">ชื่อ(EN):</label>
+                                                        <input type="text" class="form-control" name="package_name_en"
+                                                        id="package_name_en" [(ngModel)]="package_name_en">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="recipient-name" class="control-label">size:</label>
+                                                        <input type="text" class="form-control" name="package_size"
+                                                        id="package_size" [(ngModel)]="package_size">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="message-text" class="control-label">ราคา:</label>
+                                                        <input type="number" class="form-control" name="package_price"
+                                                        id="package_price" [(ngModel)]="package_price">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="message-text" class="control-label">จำนวนภาพ:</label>
+                                                        <input type="number" class="form-control" name="package_pic"
+                                                        id="package_pic" [(ngModel)]="package_pic">
+                                                    </div>
+                                                </form>
+                                                <div class="form-group has-danger">
+                                                    <div class="form-control-feedback">***การแก้ไขราคาจะเป็นการปรับราคาแพกเพจหน้าเว็บรวมถึงการเรียกชำระเงินลูกค้า</div>
+                                                </div>
+                                                <div style="display: flex; align-items: center;
+                                                justify-content: flex-end; padding: 15px; border-top: 1px solid #e9ecef;">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
+                                                    <button type="button" class="btn btn-warning" (click)="save_edit_package()">แก้ไข</button>
+                                                </div>
+                                                
                                             </div>
-                                            <div class="form-group">
-                                                <label for="recipient-name" class="control-label">size:</label>
-                                                <input type="text" class="form-control" name="package_size"
-                                                id="package_size" [(ngModel)]="package_size">
+                                            <div class="tab-pane fade" id="package_desc" 
+                                            role="tabpanel">
+                                                <form class="pt-2">
+                                                    <div class="table-responsive">
+                                                        <table class="table color-table info-table"
+                                                        style="table-layout:fixed;">
+                                                            <thead>
+                                                                <tr style="width: 100%;">
+                                                                    <th style="width: 10%;">#</th>
+                                                                    <th style="width: 65%;">Description</th>
+                                                                    <th style="width: 25%;">action</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr *ngFor="let item of list_package_desc; let i=index">
+                                                                    <ng-container *ngIf="item.edit_package_desc==false">
+                                                                        <td>{{i+1}}</td>
+                                                                        <td>
+                                                                            <div style="word-wrap: break-word">
+                                                                                {{item.package_desc}}
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <button type="button" class="btn btn-info"
+                                                                            (click)="get_update_package_desc(item);item.edit_package_desc=true">
+                                                                                <i class="mdi mdi-table-edit"></i>
+                                                                            </button>
+                                                                            <button type="button" class="btn btn-danger"
+                                                                            (click)="delete_package_desc(item);">
+                                                                                <i class="mdi mdi-delete"></i>
+                                                                            </button>
+                                                                        </td>
+                                                                    </ng-container>
+                                                                    <ng-container *ngIf="item.edit_package_desc==true">
+                                                                        <!-- <td>{{i+1}}</td> -->
+                                                                        <td colspan="2">
+                                                                            <textarea name="package_desc_description" id="package_desc_description" cols="30" rows="3"
+                                                                            [(ngModel)]="package_desc_description">
+                                                                                
+                                                                            </textarea>
+                                                                        </td>
+                                                                        <td>
+                                                                            <button type="button" class="btn btn-info" data-toggle="modal" 
+                                                                            (click)="item.edit_package_desc=false;update_package_desc();">
+                                                                                <i class="mdi mdi-content-save"></i>
+                                                                            </button>
+                                                                            <button type="button" class="btn btn-info" 
+                                                                            (click)="item.edit_package_desc=false;">
+                                                                                <i class="mdi mdi-close"></i>
+                                                                            </button>
+                                                                        </td>
+                                                                    </ng-container>
+                                                                </tr>
+                                                                <tr>
+                                                                    <ng-container *ngIf="package_desc_status==true">
+                                                                        <td colspan="2">
+                                                                            <textarea name="package_desc_description" id="package_desc_description" cols="30" rows="3"
+                                                                            [(ngModel)]="package_desc_description">
+                                                                                
+                                                                            </textarea>
+                                                                        </td>
+                                                                        <td>
+                                                                            <button type="button" class="btn btn-info" data-toggle="modal" 
+                                                                            (click)="package_desc_status=false;add_package_desc()">
+                                                                                <i class="mdi mdi-content-save"></i>
+                                                                            </button>
+                                                                            <button type="button" class="btn btn-info" 
+                                                                            (click)="package_desc_status=false;">
+                                                                                <i class="mdi mdi-close"></i>
+                                                                            </button>
+                                                                        </td>
+                                                                    </ng-container>
+                                                                    <td *ngIf="package_desc_status==false"
+                                                                    colspan="3" style="text-align: center;">
+                                                                        <button class="btn btn-info" (click)="package_desc_status=true">
+                                                                            <!-- <i class="mdi mdi-plus"></i> -->
+                                                                            New description
+                                                                        </button>
+                                                                    </td>
+        
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </form>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="message-text" class="control-label">ราคา:</label>
-                                                <input type="number" class="form-control" name="package_price"
-                                                id="package_price" [(ngModel)]="package_price">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="message-text" class="control-label">จำนวนภาพ:</label>
-                                                <input type="number" class="form-control" name="package_pic"
-                                                id="package_pic" [(ngModel)]="package_pic">
-                                            </div>
-                                        </form>
-                                        <div class="form-group has-danger">
-                                            <div class="form-control-feedback">***การแก้ไขราคาจะเป็นการปรับราคาแพกเพจหน้าเว็บรวมถึงการเรียกชำระเงินลูกค้า</div>
-                                    </div>
-                                        
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
-                                        <button type="button" class="btn btn-warning" (click)="save_edit_package()">แก้ไข</button>
+                                          </div>
                                     </div>
                                 </div>
                             </div>
@@ -239,6 +354,7 @@
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                     </div>
                                     <div class="modal-body">
+                                        
                                         <form>
                                             <div class="table-responsive">
                                                 <table class="table color-table info-table">

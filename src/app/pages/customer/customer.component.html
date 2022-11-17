@@ -46,7 +46,8 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">ตารางแสดงข้อมูลลูกค้า</h4>
+                            <h4 class="card-title">ตารางแสดงข้อมูลลูกค้า </h4>
+                                <!-- <span class="label label-warning">รอ join กับ receipt</span>  -->
                             <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6>
                             <div class="table-responsive m-t-40">
                                 <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
@@ -82,14 +83,14 @@
                                         <tr>
                                             <td>{{item.name}}</td>
                                             <td>{{item.last_name}}</td>
-                                            <td>==รอเก็บ customer address==</td>
-                                            <td>{{item.name_item}} <ng-container *ngIf="item.size_item!=''">Size {{item.size_item}}</ng-container></td>
+                                            <td>{{item.state}}</td>
+                                            <td>{{item.name_item_en}} <ng-container *ngIf="item.size_item!=''">Size {{item.size_item}}</ng-container></td>
                                             <td>{{item.price}}</td>
                                             <td>{{item.start_date}}</td>
                                             <td>{{item.end_date}}</td>
                                             <td><span class="label label-success">{{item.status}}</span></td>
                                             <td><span class="label label-success">ใช้งานได้</span></td>
-                                            <td>==รอเก็บ usage logs==</td>
+                                            <td>{{item.withdraw_pic}}/{{item.deposit_pic}}</td>
                                         </tr>
                                     </tbody>
                                     <tbody hidden>

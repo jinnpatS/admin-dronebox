@@ -14,6 +14,7 @@ export class PackageComponent implements OnInit {
   //pack
   package_id:any=0
   package_name:any=''
+  package_name_en:any=''
   package_size:any=''
   package_price:number=0
   package_pic:number=0
@@ -50,6 +51,7 @@ export class PackageComponent implements OnInit {
   add_package(){
     let data = {
       name_item:this.package_name,
+      name_item_en:this.package_name_en,
       size_item:this.package_size,
       item_price:this.package_price,
       num_pic:this.package_pic,
@@ -68,6 +70,7 @@ export class PackageComponent implements OnInit {
   edit_package(item:any){
     this.package_id=item.item_id
     this.package_name=item.name_item
+    this.package_name_en=item.name_item_en
     this.package_size=item.size_item
     this.package_price=item.item_price
     this.package_pic=item.num_pic
@@ -77,6 +80,7 @@ export class PackageComponent implements OnInit {
     let data = {
       id:this.package_id,
       name_item:this.package_name,
+      name_item_en:this.package_name_en,
       size_item:this.package_size,
       item_price:this.package_price,
       num_pic:this.package_pic,
@@ -123,6 +127,7 @@ export class PackageComponent implements OnInit {
   clear_package_data(){
     this.package_id=0
     this.package_name=''
+    this.package_name_en=''
     this.package_size=''
     this.package_price=0
     this.package_pic=0
