@@ -11,6 +11,7 @@ import { HeaderComponent } from './pages/header/header.component';
 import { CustomerComponent } from './pages/customer/customer.component';
 import { PaperInvoiceComponent } from './pages/paper-invoice/paper-invoice.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule,
   ],
   providers: [],

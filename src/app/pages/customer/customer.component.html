@@ -78,7 +78,21 @@
                                             <th>จำนวนภาพที่ใช้ไป</th>
                                         </tr>
                                     </tfoot>
-                                    <tbody>
+                                    <tbody *ngFor="let item of list_customer">
+                                        <tr>
+                                            <td>{{item.name}}</td>
+                                            <td>{{item.last_name}}</td>
+                                            <td>==รอเก็บ customer address==</td>
+                                            <td>{{item.name_item}} <ng-container *ngIf="item.size_item!=''">Size {{item.size_item}}</ng-container></td>
+                                            <td>{{item.price}}</td>
+                                            <td>{{item.start_date}}</td>
+                                            <td>{{item.end_date}}</td>
+                                            <td><span class="label label-success">{{item.status}}</span></td>
+                                            <td><span class="label label-success">ใช้งานได้</span></td>
+                                            <td>==รอเก็บ usage logs==</td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody hidden>
                                         <tr>
                                             <td>Tiger</td>
                                             <td>Nixon</td>
@@ -217,7 +231,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card" hidden>
                         <div class="card-body">
                             <h4 class="card-title">Data Table</h4>
                             <h6 class="card-subtitle">Data table example</h6>
@@ -389,7 +403,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card" hidden>
                         <div class="card-body">
                             <h4 class="card-title">Row grouping </h4>
                             <h6 class="card-subtitle">Data table example</h6>
