@@ -23,9 +23,9 @@ export class DashboardService {
 
   }
 
-  async get_package(){
+  async get_count_customer(){
     return new Promise((res, rej) => {
-      this.http.get(this.base_path+'get_all')
+      this.http.get(this.base_path+'dashboard/get_count_customer')
         .subscribe((data: any) => {
           res(data)          
         }, (err: any) => {
@@ -34,4 +34,69 @@ export class DashboardService {
     });
   }
 
+  async get_count_package(){
+    return new Promise((res, rej) => {
+      this.http.get(this.base_path+'dashboard/get_count_package')
+        .subscribe((data: any) => {
+          res(data)          
+        }, (err: any) => {
+          rej(err)
+        });
+    });
+  }
+
+  async get_count_task(){
+    return new Promise((res, rej) => {
+      this.http.get(this.base_path+'dashboard/get_count_task')
+        .subscribe((data: any) => {
+          res(data)          
+        }, (err: any) => {
+          rej(err)
+        });
+    });
+  }
+
+  async get_sum_usage(){
+    return new Promise((res, rej) => {
+      this.http.get(this.base_path+'dashboard/get_sum_usage')
+        .subscribe((data: any) => {
+          res(data)          
+        }, (err: any) => {
+          rej(err)
+        });
+    });
+  }
+
+  async get_sales_overview(date:any){
+    return new Promise((res, rej) => {
+      this.http.post(this.base_path+'dashboard/get_sales_overview',JSON.stringify(date))
+        .subscribe((data: any) => {
+          res(data)          
+        }, (err: any) => {
+          rej(err)
+        });
+    });
+  }
+
+  async get_task_process_date(date:any){
+    return new Promise((res, rej) => {
+      this.http.post(this.base_path+'dashboard/get_task_process_date',JSON.stringify(date))
+        .subscribe((data: any) => {
+          res(data)          
+        }, (err: any) => {
+          rej(err)
+        });
+    });
+  }
+
+  async get_task_process_time(date:any){
+    return new Promise((res, rej) => {
+      this.http.post(this.base_path+'dashboard/get_task_process_time',JSON.stringify(date))
+        .subscribe((data: any) => {
+          res(data)          
+        }, (err: any) => {
+          rej(err)
+        });
+    });
+  }
 }

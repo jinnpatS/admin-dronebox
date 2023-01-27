@@ -15,6 +15,10 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "echarts": ["node_modules/echarts/dist/echarts.min.js"]
+    }
+      
   }
 }

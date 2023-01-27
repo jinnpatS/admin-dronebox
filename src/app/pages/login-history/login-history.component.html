@@ -1,0 +1,151 @@
+<!-- <div class="preloader">
+    <div class="loader">
+        <div class="loader__figure"></div>
+        <p class="loader__label">Admin Pro</p>
+    </div>
+  </div> -->
+  <!-- ============================================================== -->
+  <!-- Main wrapper - style you can find in pages.scss -->
+  <!-- ============================================================== -->
+  <div id="main-wrapper">
+
+    <app-header></app-header>
+
+    <app-nav></app-nav>
+
+    <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h3 class="text-themecolor">Login history</h3>
+                </div>
+                <div class="col-md-7 align-self-center">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                        <li class="breadcrumb-item">pages</li>
+                        <li class="breadcrumb-item active">Login history</li>
+                    </ol>
+                </div>
+                <div>
+                    
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h4 class="card-title">ตารางแสดงการเข้าสู่ระบบของลูกค้า </h4>
+                                    <h6 class="card-subtitle">1000 ครั้งล่าสุด</h6>
+                                </div>
+                                <div class="col-5">
+                                    <input class="form-control" type="text" style="width: 100%;" [(ngModel)]="search_text">
+                                    <input class="form-control" type="date" style="width: 45%;" [(ngModel)]="search_start_date">   <span style="margin: 15px;">To</span>
+                                    <input class="form-control" type="date" style="width: 45%;" [(ngModel)]="search_end_date">
+                                </div>
+                                <div class="col-1">
+                                    <button (click)="search_login()"
+                                    class="btn" style="height: 80px;width: 70px;margin-top: -4px;">
+                                        <i class="mdi mdi-magnify"></i></button>
+                                </div>
+                            </div>
+                            
+                            <div class="table-responsive m-t-20">
+                                <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <!-- <th>customer_id</th> -->
+                                            <th>name</th>
+                                            <th>last_name</th>
+                                            <th>email</th>
+                                            <th>datetime</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>#</th>
+                                            <!-- <th>customer_id</th> -->
+                                            <th>name</th>
+                                            <th>last_name</th>
+                                            <th>email</th>
+                                            <th>datetime</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody *ngFor="let item of list_login_show; let i=index">
+                                        <tr>
+                                            <td>{{i+1}}</td>
+                                            <!-- <td>{{item.customer_id}}</td> -->
+                                            <td>{{item.name}}</td>
+                                            <td>{{item.last_name}}</td>
+                                            <td>{{item.email}}</td>
+                                            <td>{{item.date_e}} {{item.time}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div style="display: flex; justify-content: space-between; width: 100%;">
+                                    <div>
+                                        <p>Showing 
+                                            <ng-container *ngIf="list_login.length<base_page; else num_pages">{{list_login.length}}</ng-container> 
+                                            <ng-template #num_pages>{{base_page}}</ng-template> 
+                                            of {{list_login.length}} entries</p>
+                                    </div>
+                                    <div>
+                                        <!-- pre -->
+                                        <button (click)="next_page('pre',base_page)" *ngIf="pages-base_page>0; else else_pre"
+                                        type="button" class="btn btn-default light">previous</button>
+                                        <ng-template #else_pre>
+                                            <button disabled
+                                            type="button" class="btn btn-default light">previous</button>
+                                        </ng-template>
+                                        <!-- next -->
+                                        <button (click)="next_page('next',base_page)" *ngIf="pages<list_login.length; else else_next"
+                                        type="button" class="btn btn-default light ml-2 mr-1">next</button>
+                                        <ng-template #else_next>
+                                            <button disabled
+                                            type="button" class="btn btn-default light ml-2 mr-1">next</button>
+                                        </ng-template>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End PAge Content -->
+            <!-- ============================================================== -->
+
+            <!-- ============================================================== -->
+            <!-- End Right sidebar -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- footer -->
+        <!-- ============================================================== -->
+        <footer class="footer"> © 2022 Admin Dronebox by MAPEDIA </footer>
+        <!-- ============================================================== -->
+        <!-- End footer -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================== -->
+  </div>
+  <script src="assets/js/test.js"></script>

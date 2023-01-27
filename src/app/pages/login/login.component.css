@@ -1,0 +1,147 @@
+.authincation {
+    
+    height: 100vh;
+    background-image: url("/assets/images/login-images/DJI_0980.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.authincation-content {
+    background-image: linear-gradient(123deg, rgba(0, 150, 136, 0.85) -26%, #103475 99%);
+}
+  
+
+  /* login with google */
+  .google-btn {
+    width: 184px;
+    height: 42px;
+    background-color: #4285f4;
+    border-radius: 2px;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+  }
+  .google-btn .google-icon-wrapper {
+    position: absolute;
+    margin-top: 1px;
+    margin-left: 1px;
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
+    background-color: #fff;
+  }
+  .google-btn .google-icon {
+    position: absolute;
+    margin-top: 11px;
+    margin-left: 11px;
+    width: 18px;
+    height: 18px;
+  }
+  .google-btn .btn-text {
+    float: right;
+    margin: 11px 11px 0 0;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    font-family: "Roboto";
+   
+  }
+  .google-btn:hover {
+    box-shadow: 0 0 6px #4285f4;
+  }
+  .google-btn:active {
+    background: #1669F2;
+  }
+
+  /* google */
+  /* You can add global styles to this file, and also import other style files */
+
+  .custom-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    width: 400px;
+  }
+  .horizontal-line-text {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #D8DDEC;
+    line-height: 0.1rem;
+    margin: 25px 0 30px 0;
+  }
+  .horizontal-line-text span {
+    background: white;
+    padding: 0 10px;
+  }
+  .google-sign-in {
+    background-color: white;
+    border: 1px solid #D8DDEC;
+    padding: 10px 30px;
+    text-align: center;
+    font-weight: bold;
+    height: 100%;
+  }
+  .google-sign-in img {
+    float: left;
+  }
+  .google-sign-in span {
+    vertical-align: middle;
+  }
+  .user-avatar {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+  }
+
+
+  .btn {
+    padding: 10px 30px;
+    border-radius: 200px;
+    letter-spacing: 2px;
+  }
+
+  .facebook-button {
+    font-family: Arial, Helvetica, sans-serif; 
+    letter-spacing: .25px; 
+    font-weight: bold; 
+    padding: 6.5px 10px; 
+    font-size: 16px; 
+    width: 250px;
+    line-height: 1.28;
+    /* background-color: #4267b2; */
+  }
+
+
+
+  /* custom */
+
+  .txt-login {
+    color: #009688;
+  }
+
+  .border {
+    border: 1px solid rgb(0 0 0/ 15%)!important;
+  }
+
+  .separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .separator::before,
+  .separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #c4c4c4;
+  }
+  
+  .separator:not(:empty)::before {
+    margin-right: 1em;
+  }
+  
+  .separator:not(:empty)::after {
+    margin-left: 1em;
+  }
+
+  

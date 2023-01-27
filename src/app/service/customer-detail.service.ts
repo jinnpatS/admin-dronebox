@@ -21,9 +21,20 @@ export class CustomerDetailService {
     private http: HttpClient, 
   ) { }
   //customer
-  async get_customer(){
+  async get_customer_detail(){
     return new Promise((res, rej) => {
       this.http.get(this.base_path+'get_customer_all')
+        .subscribe((data: any) => {
+          res(data)          
+        }, (err: any) => {
+          rej(err)
+        });
+    });
+  }
+
+  async get_customer(){
+    return new Promise((res, rej) => {
+      this.http.get(this.base_path+'get_customer_in_dronebox')
         .subscribe((data: any) => {
           res(data)          
         }, (err: any) => {

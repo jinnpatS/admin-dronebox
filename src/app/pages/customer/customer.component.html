@@ -23,17 +23,17 @@
             <!-- ============================================================== -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">ข้อมูลลูกค้า</h3>
+                    <h3 class="text-themecolor">ข้อมูลของลูกค้า</h3>
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
                         <li class="breadcrumb-item">pages</li>
-                        <li class="breadcrumb-item active">ข้อมูลลูกค้า</li>
+                        <li class="breadcrumb-item active">ข้อมูลของลูกค้า</li>
                     </ol>
                 </div>
                 <div>
-                    <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+                    
                 </div>
             </div>
             <!-- ============================================================== -->
@@ -46,529 +46,79 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">ตารางแสดงข้อมูลลูกค้า </h4>
-                                <!-- <span class="label label-warning">รอ join กับ receipt</span>  -->
-                            <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6>
-                            <div class="table-responsive m-t-40">
-                                <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
-                                    <thead>
-                                        <tr>
-                                            <th>ชื่อ</th>
-                                            <th>นามสกุล</th>
-                                            <th>จังหวัด</th>
-                                            <th>Package</th>
-                                            <th>ราคา</th>
-                                            <th>วันที่ชำระ</th>
-                                            <th>วันหมดอายุ</th>
-                                            <th>สถานะการขำระเงิน</th>
-                                            <th>สถานะการใช้งาน</th>
-                                            <th>จำนวนภาพที่ใช้ไป</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>ชื่อ</th>
-                                            <th>นามสกุล</th>
-                                            <th>จังหวัด</th>
-                                            <th>Package</th>
-                                            <th>ราคา</th>
-                                            <th>วันที่ชำระ</th>
-                                            <th>วันหมดอายุ</th>
-                                            <th>สถานะการขำระเงิน</th>
-                                            <th>สถานะการใช้งาน</th>
-                                            <th>จำนวนภาพที่ใช้ไป</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody *ngFor="let item of list_customer">
-                                        <tr>
-                                            <td>{{item.name}}</td>
-                                            <td>{{item.last_name}}</td>
-                                            <td>{{item.state}}</td>
-                                            <td>{{item.name_item_en}} <ng-container *ngIf="item.size_item!=''">Size {{item.size_item}}</ng-container></td>
-                                            <td>{{item.price}}</td>
-                                            <td>{{item.start_date}}</td>
-                                            <td>{{item.end_date}}</td>
-                                            <td><span class="label label-success">{{item.status}}</span></td>
-                                            <td><span class="label label-success">ใช้งานได้</span></td>
-                                            <td>{{item.withdraw_pic}}/{{item.deposit_pic}}</td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody hidden>
-                                        <tr>
-                                            <td>Tiger</td>
-                                            <td>Nixon</td>
-                                            <td>Edinburgh</td>
-                                            <td>S</td>
-                                            <td>299</td>
-                                            <td>25/10/2565</td>
-                                            <td>25/10/2565</td>
-                                            <td><span class="label label-success">สำเร็จ</span></td>
-                                            <td><span class="label label-danger">หมดอายุ</span></td>
-                                            <td>300</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Garrett</td>
-                                            <td>Winters</td>
-                                            <td>Tokyo</td>
-                                            <td>S</td>
-                                            <td>299</td>
-                                            <td>25/10/2565</td>
-                                            <td>25/10/2565</td>
-                                            <td><span class="label label-success">สำเร็จ</span></td>
-                                            <td><span class="label label-danger">หมดอายุ</span></td>
-                                            <td>300</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ashton</td>
-                                            <td>Cox</td>
-                                            <td>San Francisco</td>
-                                            <td>M</td>
-                                            <td>499</td>
-                                            <td>25/10/2565</td>
-                                            <td>25/10/2565</td>
-                                            <td><span class="label label-success">สำเร็จ</span></td>
-                                            <td><span class="label label-danger">หมดอายุ</span></td>
-                                            <td>300</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cedric Kelly</td>
-                                            <td>Kelly</td>
-                                            <td>Edinburgh</td>
-                                            <td>M</td>
-                                            <td>499</td>
-                                            <td>25/10/2565</td>
-                                            <td>25/10/2565</td>
-                                            <td><span class="label label-success">สำเร็จ</span></td>
-                                            <td><span class="label label-success">ใช้งานได้</span></td>
-                                            <td>200</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Airi</td>
-                                            <td>Satou</td>
-                                            <td>Tokyo</td>
-                                            <td>L</td>
-                                            <td>999</td>
-                                            <td>25/10/2565</td>
-                                            <td>25/10/2565</td>
-                                            <td><span class="label label-success">สำเร็จ</span></td>
-                                            <td><span class="label label-success">ใช้งานได้</span></td>
-                                            <td>440</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Brielle</td>
-                                            <td>Williamson</td>
-                                            <td>New York</td>
-                                            <td>S</td>
-                                            <td>299</td>
-                                            <td>25/10/2565</td>
-                                            <td>25/10/2565</td>
-                                            <td><span class="label label-success">สำเร็จ</span></td>
-                                            <td><span class="label label-success">ใช้งานได้</span></td>
-                                            <td>200</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Herrod</td>
-                                            <td>Chandler</td>
-                                            <td>San Francisco</td>
-                                            <td>S</td>
-                                            <td>299</td>
-                                            <td>25/10/2565</td>
-                                            <td>25/10/2565</td>
-                                            <td><span class="label label-success">สำเร็จ</span></td>
-                                            <td><span class="label label-success">ใช้งานได้</span></td>
-                                            <td>100</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Rhona</td>
-                                            <td>Davidson</td>
-                                            <td>Tokyo</td>
-                                            <td>S</td>
-                                            <td>299</td>
-                                            <td>25/10/2565</td>
-                                            <td>25/10/2565</td>
-                                            <td><span class="label label-success">สำเร็จ</span></td>
-                                            <td><span class="label label-success">ใช้งานได้</span></td>
-                                            <td>10</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Colleen</td>
-                                            <td>Hurst</td>
-                                            <td>San Francisco</td>
-                                            <td>S</td>
-                                            <td>299</td>
-                                            <td>25/10/2565</td>
-                                            <td>25/10/2565</td>
-                                            <td><span class="label label-success">สำเร็จ</span></td>
-                                            <td><span class="label label-success">ใช้งานได้</span></td>
-                                            <td>240</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Sonya</td>
-                                            <td>Frost</td>
-                                            <td>Edinburgh</td>
-                                            <td>S</td>
-                                            <td>299</td>
-                                            <td>25/10/2565</td>
-                                            <td>25/10/2565</td>
-                                            <td><span class="label label-success">สำเร็จ</span></td>
-                                            <td><span class="label label-danger">หมดอายุ</span></td>
-                                            <td>300</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tatyana</td>
-                                            <td>Fitzpatrick</td>
-                                            <td>Edinburgh</td>
-                                            <td>S</td>
-                                            <td>299</td>
-                                            <td>25/10/2565</td>
-                                            <td>25/10/2565</td>
-                                            <td><span class="label label-success">สำเร็จ</span></td>
-                                            <td><span class="label label-danger">หมดอายุ</span></td>
-                                            <td>300</td>
-                                        </tr>
-                                        
-                                    </tbody>
-                                </table>
+                            <div class="row">
+                                <div class="col-6">
+                                    <h4 class="card-title">ตารางแสดงข้อมูลของลูกค้า </h4>
+                                </div>
+                                <div class="col-5">
+                                    <input class="form-control" type="text" style="width: 100%;" [(ngModel)]="search_text_1">
+                                </div>
+                                <div class="col-1">
+                                    <button (click)="search(1)"
+                                    class="btn" style="height: auto;width: 70px;margin-top: -4px;">
+                                        <i class="mdi mdi-magnify"></i></button>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="card" hidden>
-                        <div class="card-body">
-                            <h4 class="card-title">Data Table</h4>
-                            <h6 class="card-subtitle">Data table example</h6>
                             <div class="table-responsive m-t-40">
-                                <table id="myTable" class="table table-bordered table-striped">
+                                <table id="example23" class="display wrap table table-hover table-striped table-bordered" cellspacing="0" style="table-layout: fixed; width: 100%">
                                     <thead>
                                         <tr>
                                             <th>ชื่อ</th>
                                             <th>นามสกุล</th>
-                                            <th>จังหวัด</th>
-                                            <th>Package</th>
-                                            <th>ราคา</th>
-                                            <th>วันที่ชำระ</th>
-                                            <th>วันหมดอายุ</th>
-                                            <th>สถานะการขำระเงิน</th>
-                                            <th>สถานะการใช้งาน</th>
-                                            <th>จำนวนภาพที่ใช้ไป</th>
+                                            <th>email</th>
+                                            <th style="word-wrap: break-word">address</th>
+                                            <th>Project</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>ชื่อ</th>
                                             <th>นามสกุล</th>
-                                            <th>จังหวัด</th>
-                                            <th>Package</th>
-                                            <th>ราคา</th>
-                                            <th>วันที่ชำระ</th>
-                                            <th>วันหมดอายุ</th>
-                                            <th>สถานะการขำระเงิน</th>
-                                            <th>สถานะการใช้งาน</th>
-                                            <th>จำนวนภาพที่ใช้ไป</th>
+                                            <th>email</th>
+                                            <th style="word-wrap: break-word">address</th>
+                                            <th>Project</th>
                                         </tr>
                                     </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <td>Tiger</td>
-                                            <td>Nixon</td>
-                                            <td>Edinburgh</td>
-                                            <td>S</td>
-                                            <td>299</td>
-                                            <td>25/10/2565</td>
-                                            <td>25/10/2565</td>
-                                            <td><span class="label label-success">สำเร็จ</span></td>
-                                            <td><span class="label label-danger">หมดอายุ</span></td>
-                                            <td>300</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Garrett</td>
-                                            <td>Winters</td>
-                                            <td>Tokyo</td>
-                                            <td>S</td>
-                                            <td>299</td>
-                                            <td>25/10/2565</td>
-                                            <td>25/10/2565</td>
-                                            <td><span class="label label-success">สำเร็จ</span></td>
-                                            <td><span class="label label-danger">หมดอายุ</span></td>
-                                            <td>300</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ashton</td>
-                                            <td>Cox</td>
-                                            <td>San Francisco</td>
-                                            <td>M</td>
-                                            <td>499</td>
-                                            <td>25/10/2565</td>
-                                            <td>25/10/2565</td>
-                                            <td><span class="label label-success">สำเร็จ</span></td>
-                                            <td><span class="label label-danger">หมดอายุ</span></td>
-                                            <td>300</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cedric Kelly</td>
-                                            <td>Kelly</td>
-                                            <td>Edinburgh</td>
-                                            <td>M</td>
-                                            <td>499</td>
-                                            <td>25/10/2565</td>
-                                            <td>25/10/2565</td>
-                                            <td><span class="label label-success">สำเร็จ</span></td>
-                                            <td><span class="label label-success">ใช้งานได้</span></td>
-                                            <td>200</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Airi</td>
-                                            <td>Satou</td>
-                                            <td>Tokyo</td>
-                                            <td>L</td>
-                                            <td>999</td>
-                                            <td>25/10/2565</td>
-                                            <td>25/10/2565</td>
-                                            <td><span class="label label-success">สำเร็จ</span></td>
-                                            <td><span class="label label-success">ใช้งานได้</span></td>
-                                            <td>440</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Brielle</td>
-                                            <td>Williamson</td>
-                                            <td>New York</td>
-                                            <td>S</td>
-                                            <td>299</td>
-                                            <td>25/10/2565</td>
-                                            <td>25/10/2565</td>
-                                            <td><span class="label label-success">สำเร็จ</span></td>
-                                            <td><span class="label label-success">ใช้งานได้</span></td>
-                                            <td>200</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Herrod</td>
-                                            <td>Chandler</td>
-                                            <td>San Francisco</td>
-                                            <td>S</td>
-                                            <td>299</td>
-                                            <td>25/10/2565</td>
-                                            <td>25/10/2565</td>
-                                            <td><span class="label label-success">สำเร็จ</span></td>
-                                            <td><span class="label label-success">ใช้งานได้</span></td>
-                                            <td>100</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Rhona</td>
-                                            <td>Davidson</td>
-                                            <td>Tokyo</td>
-                                            <td>S</td>
-                                            <td>299</td>
-                                            <td>25/10/2565</td>
-                                            <td>25/10/2565</td>
-                                            <td><span class="label label-success">สำเร็จ</span></td>
-                                            <td><span class="label label-success">ใช้งานได้</span></td>
-                                            <td>10</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Colleen</td>
-                                            <td>Hurst</td>
-                                            <td>San Francisco</td>
-                                            <td>S</td>
-                                            <td>299</td>
-                                            <td>25/10/2565</td>
-                                            <td>25/10/2565</td>
-                                            <td><span class="label label-success">สำเร็จ</span></td>
-                                            <td><span class="label label-success">ใช้งานได้</span></td>
-                                            <td>240</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Sonya</td>
-                                            <td>Frost</td>
-                                            <td>Edinburgh</td>
-                                            <td>S</td>
-                                            <td>299</td>
-                                            <td>25/10/2565</td>
-                                            <td>25/10/2565</td>
-                                            <td><span class="label label-success">สำเร็จ</span></td>
-                                            <td><span class="label label-danger">หมดอายุ</span></td>
-                                            <td>300</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tatyana</td>
-                                            <td>Fitzpatrick</td>
-                                            <td>Edinburgh</td>
-                                            <td>S</td>
-                                            <td>299</td>
-                                            <td>25/10/2565</td>
-                                            <td>25/10/2565</td>
-                                            <td><span class="label label-success">สำเร็จ</span></td>
-                                            <td><span class="label label-danger">หมดอายุ</span></td>
-                                            <td>300</td>
-                                        </tr>  
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card" hidden>
-                        <div class="card-body">
-                            <h4 class="card-title">Row grouping </h4>
-                            <h6 class="card-subtitle">Data table example</h6>
-                            <div class="table-responsive m-t-40">
-                                <table id="example" class="table display table-bordered table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cedric Kelly</td>
-                                            <td>Senior Javascript Developer</td>
-                                            <td>Edinburgh</td>
-                                            <td>22</td>
-                                            <td>2012/03/29</td>
-                                            <td>$433,060</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Airi Satou</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>33</td>
-                                            <td>2008/11/28</td>
-                                            <td>$162,700</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Brielle Williamson</td>
-                                            <td>Integration Specialist</td>
-                                            <td>New York</td>
-                                            <td>61</td>
-                                            <td>2012/12/02</td>
-                                            <td>$372,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Herrod Chandler</td>
-                                            <td>Sales Assistant</td>
-                                            <td>San Francisco</td>
-                                            <td>59</td>
-                                            <td>2012/08/06</td>
-                                            <td>$137,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Rhona Davidson</td>
-                                            <td>Integration Specialist</td>
-                                            <td>Tokyo</td>
-                                            <td>55</td>
-                                            <td>2010/10/14</td>
-                                            <td>$327,900</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Colleen Hurst</td>
-                                            <td>Javascript Developer</td>
-                                            <td>San Francisco</td>
-                                            <td>39</td>
-                                            <td>2009/09/15</td>
-                                            <td>$205,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jena Gaines</td>
-                                            <td>Office Manager</td>
-                                            <td>London</td>
-                                            <td>30</td>
-                                            <td>2008/12/19</td>
-                                            <td>$90,560</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Charde Marshall</td>
-                                            <td>Regional Director</td>
-                                            <td>San Francisco</td>
-                                            <td>36</td>
-                                            <td>2008/10/16</td>
-                                            <td>$470,600</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Michael Silva</td>
-                                            <td>Marketing Designer</td>
-                                            <td>London</td>
-                                            <td>66</td>
-                                            <td>2012/11/27</td>
-                                            <td>$198,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Paul Byrd</td>
-                                            <td>Chief Financial Officer (CFO)</td>
-                                            <td>New York</td>
-                                            <td>64</td>
-                                            <td>2010/06/09</td>
-                                            <td>$725,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Gloria Little</td>
-                                            <td>Systems Administrator</td>
-                                            <td>New York</td>
-                                            <td>59</td>
-                                            <td>2009/04/10</td>
-                                            <td>$237,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Bradley Greer</td>
-                                            <td>Software Engineer</td>
-                                            <td>London</td>
-                                            <td>41</td>
-                                            <td>2012/10/13</td>
-                                            <td>$132,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jennifer Chang</td>
-                                            <td>Regional Director</td>
-                                            <td>Singapore</td>
-                                            <td>28</td>
-                                            <td>2010/11/14</td>
-                                            <td>$357,650</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Fiona Green</td>
-                                            <td>Chief Operating Officer (COO)</td>
-                                            <td>San Francisco</td>
-                                            <td>48</td>
-                                            <td>2010/03/11</td>
-                                            <td>$850,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Shou Itou</td>
-                                            <td>Regional Marketing</td>
-                                            <td>Tokyo</td>
-                                            <td>20</td>
-                                            <td>2011/08/14</td>
-                                            <td>$163,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Suki Burks</td>
-                                            <td>Developer</td>
-                                            <td>London</td>
-                                            <td>53</td>
-                                            <td>2009/10/22</td>
-                                            <td>$114,500</td>
+                                    <tbody >
+                                        <tr *ngFor="let item of list_customer_show">
+                                            <td>{{item.customer_name}}</td>
+                                            <td>{{item.customer_last_name}}</td>
+                                            <td>{{item.email}}</td>
+                                            <td style="word-wrap: break-word">
+                                                {{item.address1}} <ng-container *ngIf="item.address2!=''"> {{item.address2}} </ng-container>
+                                                {{item.city}} {{item.state}} {{item.country}} {{item.zip_code}}</td>
+                                            <td>
+                                                <ng-container *ngIf="item.count>0;else else_countproject">{{item.count}}</ng-container>
+                                                <ng-template #else_countproject>Free or 0</ng-template>
+                                            </td>
+                                            
                                         </tr>
                                     </tbody>
                                 </table>
+                                <div style="display: flex; justify-content: space-between; width: 100%;">
+                                    <div>
+                                        <p>Showing 
+                                            <ng-container *ngIf="list_customer.length<base_page; else num_pages">{{list_customer.length}}</ng-container> 
+                                            <ng-template #num_pages>{{base_page}}</ng-template> 
+                                            of {{list_customer.length}} entries</p>
+                                    </div>
+                                    <div>
+                                        <!-- pre -->
+                                        <button (click)="next_page('customer','pre',base_page)" *ngIf="pages-base_page>0; else else_pre"
+                                        type="button" class="btn btn-default light">previous</button>
+                                        <ng-template #else_pre>
+                                            <button disabled
+                                            type="button" class="btn btn-default light">previous</button>
+                                        </ng-template>
+                                        <!-- next -->
+                                        <button (click)="next_page('customer','next',base_page)" *ngIf="pages<list_customer.length; else else_next"
+                                        type="button" class="btn btn-default light ml-2 mr-1">next</button>
+                                        <ng-template #else_next>
+                                            <button disabled
+                                            type="button" class="btn btn-default light ml-2 mr-1">next</button>
+                                        </ng-template>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -578,61 +128,143 @@
             <!-- End PAge Content -->
             <!-- ============================================================== -->
             <!-- ============================================================== -->
-            <!-- Right sidebar -->
             <!-- ============================================================== -->
-            <!-- .right-sidebar -->
-            <div class="right-sidebar">
-                <div class="slimscrollright">
-                    <div class="rpanel-title"> Service Panel <span><i class="ti-close right-side-toggle"></i></span> </div>
-                    <div class="r-panel-body">
-                        <ul id="themecolors" class="m-t-20">
-                            <li><b>With Light sidebar</b></li>
-                            <li><a href="javascript:void(0)" data-theme="default" class="default-theme">1</a></li>
-                            <li><a href="javascript:void(0)" data-theme="green" class="green-theme">2</a></li>
-                            <li><a href="javascript:void(0)" data-theme="red" class="red-theme">3</a></li>
-                            <li><a href="javascript:void(0)" data-theme="blue" class="blue-theme working">4</a></li>
-                            <li><a href="javascript:void(0)" data-theme="purple" class="purple-theme">5</a></li>
-                            <li><a href="javascript:void(0)" data-theme="megna" class="megna-theme">6</a></li>
-                            <li class="d-block m-t-30"><b>With Dark sidebar</b></li>
-                            <li><a href="javascript:void(0)" data-theme="default-dark" class="default-dark-theme">7</a></li>
-                            <li><a href="javascript:void(0)" data-theme="green-dark" class="green-dark-theme">8</a></li>
-                            <li><a href="javascript:void(0)" data-theme="red-dark" class="red-dark-theme">9</a></li>
-                            <li><a href="javascript:void(0)" data-theme="blue-dark" class="blue-dark-theme">10</a></li>
-                            <li><a href="javascript:void(0)" data-theme="purple-dark" class="purple-dark-theme">11</a></li>
-                            <li><a href="javascript:void(0)" data-theme="megna-dark" class="megna-dark-theme ">12</a></li>
-                        </ul>
-                        <ul class="m-t-20 chatonline">
-                            <li><b>Chat option</b></li>
-                            <li>
-                                <a href="javascript:void(0)"><img src="assets/images/users/1.jpg" alt="user-img" class="img-circle"> <span>Varun Dhavan <small class="text-success">online</small></span></a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"><img src="assets/images/users/2.jpg" alt="user-img" class="img-circle"> <span>Genelia Deshmukh <small class="text-warning">Away</small></span></a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"><img src="assets/images/users/3.jpg" alt="user-img" class="img-circle"> <span>Ritesh Deshmukh <small class="text-danger">Busy</small></span></a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"><img src="assets/images/users/4.jpg" alt="user-img" class="img-circle"> <span>Arijit Sinh <small class="text-muted">Offline</small></span></a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"><img src="assets/images/users/5.jpg" alt="user-img" class="img-circle"> <span>Govinda Star <small class="text-success">online</small></span></a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"><img src="assets/images/users/6.jpg" alt="user-img" class="img-circle"> <span>John Abraham<small class="text-success">online</small></span></a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"><img src="assets/images/users/7.jpg" alt="user-img" class="img-circle"> <span>Hritik Roshan<small class="text-success">online</small></span></a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"><img src="assets/images/users/8.jpg" alt="user-img" class="img-circle"> <span>Pwandeep rajan <small class="text-success">online</small></span></a>
-                            </li>
-                        </ul>
+        </div>
+
+        <div class="container-fluid">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h3 class="text-themecolor">ข้อมูลแพคเกจของลูกค้า</h3>
+                </div>
+                <!-- <div class="col-md-7 align-self-center">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                        <li class="breadcrumb-item">pages</li>
+                        <li class="breadcrumb-item active">ข้อมูลแพคเกจของลูกค้า</li>
+                    </ol>
+                </div> -->
+                <div>
+                    
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h4 class="card-title">ตารางแสดงข้อมูลแพคเกจของลูกค้า </h4>
+                                    <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6>
+                                </div>
+                                <div class="col-5">
+                                    <input class="form-control" type="text" style="width: 100%;" [(ngModel)]="search_text_2">
+                                </div>
+                                <div class="col-1">
+                                    <button (click)="search(2)"
+                                    class="btn" style="height: auto;width: 70px;margin-top: -4px;">
+                                        <i class="mdi mdi-magnify"></i></button>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="table-responsive m-t-40">
+                                <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>ชื่อ</th>
+                                            <th>นามสกุล</th>
+                                            <!-- <th>จังหวัด</th> -->
+                                            <th>Package</th>
+                                            <th>ราคา</th>
+                                            <th>วันที่ชำระ</th>
+                                            <th>วันหมดอายุ</th>
+                                            <!-- <th>สถานะการขำระเงิน</th> -->
+                                            <th>สถานะการใช้งาน</th>
+                                            <th>จำนวนภาพที่ใช้ไป</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>ชื่อ</th>
+                                            <th>นามสกุล</th>
+                                            <!-- <th>จังหวัด</th> -->
+                                            <th>Package Size</th>
+                                            <th>ราคา</th>
+                                            <th>วันที่ชำระ</th>
+                                            <th>วันหมดอายุ</th>
+                                            <!-- <th>สถานะการขำระเงิน</th> -->
+                                            <th>สถานะการใช้งาน</th>
+                                            <th>จำนวนภาพที่ใช้ไป</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody >
+                                        <tr *ngFor="let item of list_customer_detail_show">
+                                            <td>{{item.customer_name}}</td>
+                                            <td>{{item.customer_last_name}}</td>
+                                            <!-- <td>{{item.state}}</td> -->
+                                            <td>{{item.name_item_en}} 
+                                                <ng-container *ngIf="item.size_item;else else_free">Size {{item.size_item}}</ng-container>
+                                                <ng-template #else_free>Free</ng-template>
+                                            <td><ng-container *ngIf="item.size_item;else else_free_price">{{item.price}}</ng-container>
+                                                <ng-template #else_free_price>-</ng-template></td>
+                                            <td><ng-container *ngIf="item.size_item;else else_free_st">{{item.start_date}}</ng-container>
+                                                <ng-template #else_free_st>-</ng-template></td>
+                                            <td><ng-container *ngIf="item.size_item;else else_free_en">{{item.end_date}}</ng-container>
+                                                <ng-template #else_free_en>-</ng-template></td>
+                                            <!-- <td><span class="label label-success">{{item.receipt_status}}</span></td> -->
+                                            <td>
+                                                <ng-container *ngIf="item.withdraw_pic<=item.deposit_pic && (item.deposit_pic || item.withdraw_pic)
+                                                    ;else else_status">
+                                                    <span class="label label-success">ใช้งานได้</span></ng-container>
+                                                <ng-template #else_status>
+                                                    <span class="label label-danger">ใช้งานไม่ได้</span></ng-template>
+                                            </td>
+                                            <td>{{item.withdraw_pic}}/{{item.deposit_pic}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div style="display: flex; justify-content: space-between; width: 100%;">
+                                    <div>
+                                        <p>Showing 
+                                            <ng-container *ngIf="list_customer_detail.length<base_page; else num_pages">{{list_customer_detail.length}}</ng-container> 
+                                            <ng-template #num_pages>{{base_page}}</ng-template> 
+                                            of {{list_customer_detail.length}} entries</p>
+                                    </div>
+                                    <div>
+                                        <!-- pre -->
+                                        <button (click)="next_page('detail','pre',base_page)" *ngIf="pages-base_page>0; else else_pre"
+                                        type="button" class="btn btn-default light">previous</button>
+                                        <ng-template #else_pre>
+                                            <button disabled
+                                            type="button" class="btn btn-default light">previous</button>
+                                        </ng-template>
+                                        <!-- next -->
+                                        <button (click)="next_page('detail','next',base_page)" *ngIf="pages<list_customer_detail.length; else else_next"
+                                        type="button" class="btn btn-default light ml-2 mr-1">next</button>
+                                        <ng-template #else_next>
+                                            <button disabled
+                                            type="button" class="btn btn-default light ml-2 mr-1">next</button>
+                                        </ng-template>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             <!-- ============================================================== -->
-            <!-- End Right sidebar -->
+            <!-- End PAge Content -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
             <!-- ============================================================== -->
         </div>
         <!-- ============================================================== -->
@@ -641,7 +273,7 @@
         <!-- ============================================================== -->
         <!-- footer -->
         <!-- ============================================================== -->
-        <footer class="footer"> © 2017 Admin Pro by wrappixel.com </footer>
+        <footer class="footer"> © 2022 Admin Dronebox by MAPEDIA </footer>
         <!-- ============================================================== -->
         <!-- End footer -->
         <!-- ============================================================== -->

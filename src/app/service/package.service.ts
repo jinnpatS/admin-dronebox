@@ -105,4 +105,45 @@ export class PackageService {
         });
     });
   }
+  //package update
+  async get_package_update(data:any){
+    return new Promise((res, rej) => {
+      this.http.get(this.base_path+'get_package_update')
+        .subscribe((data: any) => {
+          res(data)          
+        }, (err: any) => {
+          rej(err)
+        });
+    });
+  }
+  async add_package_update(data:any){
+    return new Promise((res, rej) => {
+      this.http.post(this.base_path+'add_package_update',JSON.stringify(data))
+        .subscribe((data: any) => {
+          res(data)          
+        }, (err: any) => {
+          rej(err)
+        });
+    });
+  }
+  async update_package_update(data:any){
+    return new Promise((res, rej) => {
+      this.http.post(this.base_path+'update_package_update',JSON.stringify(data))
+        .subscribe((data: any) => {
+          res(data)          
+        }, (err: any) => {
+          rej(err)
+        });
+    });
+  }
+  async delete_package_update(data:any){
+    return new Promise((res, rej) => {
+      this.http.post(this.base_path+'delete_package_update',JSON.stringify(data))
+        .subscribe((data: any) => {
+          res(data)          
+        }, (err: any) => {
+          rej(err)
+        });
+    });
+  }
 }

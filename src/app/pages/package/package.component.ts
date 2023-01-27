@@ -27,6 +27,7 @@ export class PackageComponent implements OnInit {
   package_desc_id:any=0
   package_desc_package_id:any=0
   package_desc_description:any=''
+  package_desc_description_en:any=''
 
   constructor(
     public packages : PackageService,
@@ -154,7 +155,9 @@ export class PackageComponent implements OnInit {
   add_package_desc(){
     let data = {
       package_id:this.package_id,
-      package_desc:this.package_desc_description
+      package_desc:this.package_desc_description,
+      package_desc_en:this.package_desc_description_en,
+
     }
     this.packages.add_package_desc(data).then((e:any) => {
       this.list_package_desc=[]
@@ -176,13 +179,15 @@ export class PackageComponent implements OnInit {
     this.package_desc_id=item.id
     this.package_desc_package_id=item.item_id
     this.package_desc_description=item.package_desc
+    this.package_desc_description_en=item.package_desc_en
   }
 
   update_package_desc(){
     let data = {
       id:this.package_desc_id,
       item_id:this.package_id,
-      package_desc:this.package_desc_description
+      package_desc:this.package_desc_description,
+      package_desc_en:this.package_desc_description_en
     }
     this.packages.update_package_desc(data).then((e:any) => {
       this.list_package_desc=[]

@@ -1,0 +1,202 @@
+
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<div id="main-wrapper">
+
+    <app-header></app-header>
+
+    <app-nav></app-nav>
+    
+    <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h3 class="text-themecolor">ใบเสร็จชำระเงิน</h3>
+                </div>
+                <div class="col-md-7 align-self-center">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                        <li class="breadcrumb-item">เอกสาร</li>
+                        <li class="breadcrumb-item active">ใบเสร็จชำระเงิน</li>
+                    </ol>
+                </div>
+                <div>
+                    
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">ตารางแสดงข้อมูลลูกค้า</h4>
+                            <h6 class="card-subtitle">ใบเสร็จชำระเงิน</h6>
+                            <div class="table-responsive m-t-40">
+                                <table class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 150px;">ชื่อ</th>
+                                            <th style="width: 150px;">นามสกุล</th>
+                                            <th>จังหวัด</th>
+                                            <th>Package</th>
+                                            <th>ราคา</th>
+                                            <th>วันที่ชำระ</th>
+                                            <th>วันหมดอายุ</th>
+                                            <th>สถานะการชำระเงิน</th>
+                                            <!-- <th>สถานะการใช้งาน</th> -->
+                                            <th>เอกสาร</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>ชื่อ</th>
+                                            <th>นามสกุล</th>
+                                            <th>จังหวัด</th>
+                                            <th>Package</th>
+                                            <th>ราคา</th>
+                                            <th>วันที่ชำระ</th>
+                                            <th>วันหมดอายุ</th>
+                                            <th>สถานะการชำระเงิน</th>
+                                            <!-- <th>สถานะการใช้งาน</th> -->
+                                            <th>เอกสาร</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody >
+                                        <tr *ngFor="let item of list_receipt_show">
+                                            <td>{{item.name}}</td>
+                                            <td>{{item.last_name}}</td>
+                                            <td>{{item.city}}</td>
+                                            <td>{{item.name_item_en}} {{item.size_item}}</td>
+                                            <td>{{item.price}}</td>
+                                            <td>{{item.start_date}}</td>
+                                            <td>{{item.end_date}}</td>
+                                            <td><span class="label label-success">{{item.status}}</span></td>
+                                            <!-- <td><span class="label label-danger">หมดอายุ</span></td> -->
+                                            <td>
+                                                <button (click)="send_receipt(item)"
+                                                type="button" class="label btn waves-effect waves-light btn-info" >
+                                                    <i class="mdi mdi-file"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div style="display: flex; justify-content: space-between; width: 100%;">
+                                    <div>
+                                        <p>Showing 
+                                            <ng-container *ngIf="list_receipt.length<base_page; else num_pages">{{list_receipt.length}}</ng-container> 
+                                            <ng-template #num_pages>{{base_page}}</ng-template> 
+                                            of {{list_receipt.length}} entries</p>
+                                    </div>
+                                    <div>
+                                        <!-- pre -->
+                                        <button (click)="next_page('pre',base_page)" *ngIf="pages-base_page>0; else else_pre"
+                                        type="button" class="btn btn-default light">previous</button>
+                                        <ng-template #else_pre>
+                                            <button disabled
+                                            type="button" class="btn btn-default light">previous</button>
+                                        </ng-template>
+                                        <!-- next -->
+                                        <button (click)="next_page('next',base_page)" *ngIf="pages<list_receipt.length; else else_next"
+                                        type="button" class="btn btn-default light ml-2 mr-1">next</button>
+                                        <ng-template #else_next>
+                                            <button disabled
+                                            type="button" class="btn btn-default light ml-2 mr-1">next</button>
+                                        </ng-template>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End PAge Content -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Right sidebar -->
+            <!-- ============================================================== -->
+            <!-- .right-sidebar -->
+            <!-- <div class="right-sidebar">
+                <div class="slimscrollright">
+                    <div class="rpanel-title"> Service Panel <span><i class="ti-close right-side-toggle"></i></span> </div>
+                    <div class="r-panel-body">
+                        <ul id="themecolors" class="m-t-20">
+                            <li><b>With Light sidebar</b></li>
+                            <li><a href="javascript:void(0)" data-theme="default" class="default-theme">1</a></li>
+                            <li><a href="javascript:void(0)" data-theme="green" class="green-theme">2</a></li>
+                            <li><a href="javascript:void(0)" data-theme="red" class="red-theme">3</a></li>
+                            <li><a href="javascript:void(0)" data-theme="blue" class="blue-theme working">4</a></li>
+                            <li><a href="javascript:void(0)" data-theme="purple" class="purple-theme">5</a></li>
+                            <li><a href="javascript:void(0)" data-theme="megna" class="megna-theme">6</a></li>
+                            <li class="d-block m-t-30"><b>With Dark sidebar</b></li>
+                            <li><a href="javascript:void(0)" data-theme="default-dark" class="default-dark-theme">7</a></li>
+                            <li><a href="javascript:void(0)" data-theme="green-dark" class="green-dark-theme">8</a></li>
+                            <li><a href="javascript:void(0)" data-theme="red-dark" class="red-dark-theme">9</a></li>
+                            <li><a href="javascript:void(0)" data-theme="blue-dark" class="blue-dark-theme">10</a></li>
+                            <li><a href="javascript:void(0)" data-theme="purple-dark" class="purple-dark-theme">11</a></li>
+                            <li><a href="javascript:void(0)" data-theme="megna-dark" class="megna-dark-theme ">12</a></li>
+                        </ul>
+                        <ul class="m-t-20 chatonline">
+                            <li><b>Chat option</b></li>
+                            <li>
+                                <a href="javascript:void(0)"><img src="../assets/images/users/1.jpg" alt="user-img" class="img-circle"> <span>Varun Dhavan <small class="text-success">online</small></span></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"><img src="../assets/images/users/2.jpg" alt="user-img" class="img-circle"> <span>Genelia Deshmukh <small class="text-warning">Away</small></span></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"><img src="../assets/images/users/3.jpg" alt="user-img" class="img-circle"> <span>Ritesh Deshmukh <small class="text-danger">Busy</small></span></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"><img src="../assets/images/users/4.jpg" alt="user-img" class="img-circle"> <span>Arijit Sinh <small class="text-muted">Offline</small></span></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"><img src="../assets/images/users/5.jpg" alt="user-img" class="img-circle"> <span>Govinda Star <small class="text-success">online</small></span></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"><img src="../assets/images/users/6.jpg" alt="user-img" class="img-circle"> <span>John Abraham<small class="text-success">online</small></span></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"><img src="../assets/images/users/7.jpg" alt="user-img" class="img-circle"> <span>Hritik Roshan<small class="text-success">online</small></span></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"><img src="../assets/images/users/8.jpg" alt="user-img" class="img-circle"> <span>Pwandeep rajan <small class="text-success">online</small></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div> -->
+            <!-- ============================================================== -->
+            <!-- End Right sidebar -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- footer -->
+        <!-- ============================================================== -->
+        <footer class="footer"> © 2022 Admin Dronebox by MAPEDIA </footer>
+        <!-- ============================================================== -->
+        <!-- End footer -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================== -->
+</div>

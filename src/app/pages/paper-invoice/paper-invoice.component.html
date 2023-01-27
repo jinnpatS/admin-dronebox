@@ -14,18 +14,35 @@
         <!-- Bread crumb and right sidebar toggle -->
         <!-- ============================================================== -->
         <div class="row page-titles">
-            <div class="col-md-5 align-self-center">
-                <h3 class="text-themecolor">Invoice</h3>
-            </div>
-            <div class="col-md-7 align-self-center">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                    <li class="breadcrumb-item">pages</li>
-                    <li class="breadcrumb-item active">Invoice</li>
+            <div class="col-md-12 align-self-center">
+                <!-- <h3 class="text-themecolor">ใบกำกับภาษี</h3> -->
+                <ol class="breadcrumb" style="float: left;">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)" [routerLink]="['/home']">Home</a></li>
+                    <li class="breadcrumb-item">เอกสาร</li>
+                    <ng-container  *ngIf="invoice_data; else else_path" >
+                        <li class="breadcrumb-item"><a href="javascript:void(0)" [routerLink]="['/invoice']" style="color:#67757c">ใบกำกับภาษี</a></li>
+                    </ng-container>
+                    <ng-template #else_path>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)" [routerLink]="['/receipt']" style="color:#67757c">ใบเสร็จชำระเงิน</a></li>
+                    </ng-template>
+                    <li class="breadcrumb-item active">BILLING INVOICE</li>
                 </ol>
             </div>
+            <!-- <div class="col-md-7 align-self-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)" [routerLink]="['/home']">Home</a></li>
+                    <li class="breadcrumb-item">เอกสาร</li>
+                    <ng-container  *ngIf="invoice_data; else else_path" >
+                        <li class="breadcrumb-item"><a href="javascript:void(0)" [routerLink]="['/invoice']" style="color:#67757c">ใบกำกับภาษี</a></li>
+                    </ng-container>
+                    <ng-template #else_path>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)" [routerLink]="['/receipt']" style="color:#67757c">ใบเสร็จชำระเงิน</a></li>
+                    </ng-template>
+                    <li class="breadcrumb-item active">BILLING INVOICE</li>
+                </ol>
+            </div> -->
             <div>
-                <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+                
             </div>
         </div>
         <!-- ============================================================== -->
@@ -36,8 +53,10 @@
         <!-- ============================================================== -->
         <div class="row">
             <div class="col-md-12">
-                <div class="card card-body printableArea">
-                    <h3><b>BILLING INVOICE</b> <span class="pull-right">#OR129837PL001</span></h3>
+                <!-- invoice -->
+                <div *ngIf="invoice_data"
+                class="card card-body printableArea">
+                    <h3><b>BILLING INVOICE</b> <span class="pull-right">#{{invoice_data.name_order}}</span></h3>
                     <hr>
                     <div class="row">
                         <div class="col-md-12">
@@ -46,21 +65,21 @@
                                     <!-- <h3> &nbsp;<b class="text-info">Dronebox</b></h3> -->
                                     <img src="../assets/images/Dronebox_Logo_typography.png" class="light-logo" alt="homepage" style="width: 120px;">
                                     <p class="text-muted m-l-5">บริษัท แมพพิเดีย จำกัด
-                                        <br/> 	เลขที่ 99 หมู่ 9 อาคารมหาธรรมราชา
-                                        <br/> ตึก B ชั้น 3 ห้อง TB-307-308 มหาวิทยาลัยนเรศวร 
+                                        <br/>เลขที่ 99 หมู่ 9 อาคารมหาธรรมราชา
+                                        <br/>ตึก B ชั้น 3 ห้อง TB-307-308 มหาวิทยาลัยนเรศวร 
                                         <br/>65000</p>
                                 </address>
                             </div>
                             <div class="pull-right text-right">
                                 <address>
                                     <h3>To,</h3>
-                                    <h4 class="font-bold">Gaala & Sons,</h4>
-                                    <p class="text-muted m-l-30">E 104, Dharti-2
-                                        <br/>Nr' Viswakarma Temple,
-                                        <br/> Talaja Road,
-                                        <br/> Bhavnagar - 364002</p>
-                                    <p class="m-t-30"><b>Invoice Date :</b> <i class="fa fa-calendar"></i> 23rd Jan 2017</p>
-                                    <p><b>Due Date :</b> <i class="fa fa-calendar"></i> 25th Jan 2017</p>
+                                    <h4 class="font-bold">{{invoice_data.name}} {{invoice_data.last_name}}</h4>
+                                    <p class="text-muted m-l-30">{{invoice_data.address1}}
+                                        <ng-container *ngIf="invoice_data.address2!='' || invoice_data.address2!='-'"><br/>{{invoice_data.address2}}</ng-container>
+                                        <br/> {{invoice_data.city}}, {{invoice_data.state}}
+                                        <br/> {{invoice_data.country}} - {{invoice_data.zip_code}}</p>
+                                    <p class="m-t-30"><b>Invoice Date :</b> <i class="fa fa-calendar"></i> {{invoice_data.start_date}}</p>
+                                    <p><b>Due Date :</b> <i class="fa fa-calendar"></i> {{invoice_data.end_date}}</p>
                                 </address>
                             </div>
                         </div>
@@ -79,10 +98,10 @@
                                     <tbody>
                                         <tr>
                                             <td class="text-center">1</td>
-                                            <td>PAY AS YOU GO Plan (Size M)</td>
+                                            <td>{{invoice_data.name_item_en}} (Size {{invoice_data.size_item}})</td>
                                             <td class="text-right">1 </td>
-                                            <td class="text-right">฿999</td>
-                                            <td class="text-right">฿999</td>
+                                            <td class="text-right">฿{{invoice_data.price*0.93 |number :'1.0-2'}}</td>
+                                            <td class="text-right">฿{{invoice_data.price*0.93 |number :'1.0-2'}}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -90,16 +109,87 @@
                         </div>
                         <div class="col-md-12">
                             <div class="pull-right m-t-30 text-right">
-                                <p>Sub - Total amount: ฿999</p>
-                                <p>vat (0%) : $0 </p>
+                                <p>Sub - Total amount: ฿{{invoice_data.price*0.93 |number :'1.0-2'}}</p>
+                                <p>vat (7%) : ${{invoice_data.price*0.07 |number :'1.0-2'}} </p>
                                 <hr>
-                                <h3><b>Total :</b>  ฿999</h3>
+                                <h3><b>Total :</b>  ฿{{invoice_data.price}}</h3>
                             </div>
                             <div class="clearfix"></div>
                             <hr>
                             <div class="text-right">
                                 <!-- <button class="btn btn-danger" type="submit"> Proceed to payment </button> -->
-                                <button id="print" class="btn btn-default btn-outline" type="button"> <span><i class="fa fa-print"></i> Print</span> </button>
+                                <button id="print" class="btn btn-default btn-outline" type="submit"> <span><i class="fa fa-print"></i> Print</span> </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- receipt -->
+                <div *ngIf="receipt_data"
+                class="card card-body printableArea">
+                    <h3><b>BILLING RECEIPT</b> <span class="pull-right">#{{receipt_data.name_order}}</span></h3>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="pull-left">
+                                <address>
+                                    <!-- <h3> &nbsp;<b class="text-info">Dronebox</b></h3> -->
+                                    <img src="../assets/images/Dronebox_Logo_typography.png" class="light-logo" alt="homepage" style="width: 120px;">
+                                    <p class="text-muted m-l-5">บริษัท แมพพิเดีย จำกัด
+                                        <br/>เลขที่ 99 หมู่ 9 อาคารมหาธรรมราชา
+                                        <br/>ตึก B ชั้น 3 ห้อง TB-307-308 มหาวิทยาลัยนเรศวร 
+                                        <br/>65000</p>
+                                </address>
+                            </div>
+                            <div class="pull-right text-right">
+                                <address>
+                                    <h3>To,</h3>
+                                    <h4 class="font-bold">{{receipt_data.name}} {{receipt_data.last_name}}</h4>
+                                    <p class="text-muted m-l-30">{{receipt_data.address1}}
+                                        <ng-container *ngIf="receipt_data.address2!='' && receipt_data.address2!='-'"><br/>{{receipt_data.address2}}</ng-container>
+                                        <br/> {{receipt_data.city}}, {{receipt_data.state}}
+                                        <br/> {{receipt_data.country}} - {{receipt_data.zip_code}}</p>
+                                    <p class="m-t-30"><b>Invoice Date :</b> <i class="fa fa-calendar"></i> {{receipt_data.start_date}}</p>
+                                    <p><b>Due Date :</b> <i class="fa fa-calendar"></i> {{receipt_data.end_date}}</p>
+                                </address>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="table-responsive m-t-40" style="clear: both;">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">#</th>
+                                            <th>Description</th>
+                                            <th class="text-right">Quantity</th>
+                                            <th class="text-right">Unit Cost</th>
+                                            <th class="text-right">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">1</td>
+                                            <td>{{receipt_data.name_item_en}} (Size {{receipt_data.size_item}})</td>
+                                            <td class="text-right">1 </td>
+                                            <td class="text-right">฿{{receipt_data.price*0.93 |number :'1.0-2'}}</td>
+                                            <td class="text-right">฿{{receipt_data.price*0.93 |number :'1.0-2'}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="pull-right m-t-30 text-right">
+                                <p>Sub - Total amount: ฿{{receipt_data.price*0.93 |number :'1.0-2'}}</p>
+                                <p>vat (7%) : ${{receipt_data.price*0.07 |number :'1.0-2'}} </p>
+                                <hr>
+                                <h3><b>Total :</b>  ฿{{receipt_data.price}}</h3>
+                            </div>
+                            <div class="clearfix"></div>
+                            <hr>
+                            <div class="text-right">
+                                <!-- <button class="btn btn-danger" type="submit"> Proceed to payment </button> -->
+                                <button id="print" class="btn btn-default btn-outline" type="submit"> <span><i class="fa fa-print"></i> Print</span> </button>
                             </div>
                         </div>
                     </div>
@@ -174,7 +264,7 @@
     <!-- footer -->
     <!-- ============================================================== -->
     <footer class="footer">
-        © 2017 Admin Pro by wrappixel.com
+        © 2022 Admin Dronebox by MAPEDIA
     </footer>
     <!-- ============================================================== -->
     <!-- End footer -->

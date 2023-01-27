@@ -6,25 +6,57 @@
             <ul id="sidebarnav">
                 <li class="nav-devider"></li>
                 <li class="nav-small-cap">PERSONAL</li>
-                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">รายงาน</span></a>
+                <li> <a class="has-arrow waves-effect waves-dark"  aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">รายงาน</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a [routerLink]="['/home']">สรุปยอด</a></li>
-                        <!-- <li><a href="index2.html">Analytical</a></li>
-                        <li><a href="index3.html">Demographical</a></li>
+                        <!-- <li><a href="index3.html">Demographical</a></li>
                         <li><a href="index4.html">Modern</a></li> -->
                     </ul>
                 </li>
                 <li class="nav-small-cap">FORMS, TABLE &amp; WIDGETS</li>
-                <li class=""> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-file"></i><span class="hide-menu">เอกสาร</span></a>
+                <li class=""> <a class="has-arrow waves-effect waves-dark" aria-expanded="false"><i class="mdi mdi-file"></i><span class="hide-menu">เอกสาร</span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a [routerLink]="['/invoice']">ใบกำกับภาษี (invoice)</a></li>
+                        <li><a [routerLink]="['/invoice']">ใบกำกับภาษี (Invoices)</a></li>
+                        <li><a [routerLink]="['/receipt']">ใบเสร็จชำระเงิน (receipts)</a></li>
                     </ul>
                 </li>
-                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">ข้อมูล</span></a>
+                <li class="nav-small-cap">PACKAGES</li>
+                <li class=""> <a class="has-arrow waves-effect waves-dark" aria-expanded="false"><i class="mdi mdi-coin"></i><span class="hide-menu">แพคเกจ</span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a [routerLink]="['/package']">Package</a></li>
+                        <li><a [routerLink]="['/package-update']">Package Update</a></li>
+                    </ul>
+                </li>
+                <li class="nav-small-cap">CUSTOMER INFO</li>
+                <li class=""> <a class="has-arrow waves-effect waves-dark" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">ข้อมูลลูกค้า</span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a [routerLink]="['/customer']">ข้อมูลแพคเกจของลูกค้า</a></li>
+                        <li><a [routerLink]="['/usage']">Usage</a></li>
+                        <li><a [routerLink]="['/login-history']">Login</a></li>
+                    </ul>
+                </li>
+                <li hidden> <a class="has-arrow waves-effect waves-dark" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">ข้อมูล</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <!-- <li><a href="table-basic.html">Basic Tables</a></li> -->
-                        <li><a [routerLink]="['/package']" >Package</a></li>
-                        <li><a [routerLink]="['/customer']">ข้อมูลลูกค้า</a></li>
+                        <li>
+                            <a class="has-arrow " href="#" aria-expanded="false">Package</a>
+                            <ul aria-expanded="true" class="collapse">
+                                <li><a [routerLink]="['/package']">Package</a></li>
+                                <li><a [routerLink]="['/package-update']">Package Update</a></li>
+                            </ul>
+                        </li>
+                        <!-- <li><a [routerLink]="['/package']" >Package</a></li>
+                        <li><a [routerLink]="['/package-update']" >Package Update</a></li> -->
+                        <li>
+                            <a class="has-arrow " href="#" aria-expanded="false">ลูกค้า</a>
+                            <ul aria-expanded="true" class="collapse">
+                                <li><a [routerLink]="['/customer']">ข้อมูลแพคเกจของลูกค้า</a></li>
+                                <li><a [routerLink]="['/usage']">Usage</a></li>
+                                <li><a [routerLink]="['/login-history']">Login</a></li>
+                            </ul>
+                        </li>
+                        
+
                         <!-- <li><a href="table-footable.html">Footable</a></li>
                         <li><a href="table-jsgrid.html">Js Grid Table</a></li>
                         <li><a href="table-responsive.html">Responsive Table</a></li>
@@ -32,7 +64,7 @@
                         <li><a href="table-editable-table.html">Editable Table</a></li> -->
                     </ul>
                 </li>
-                <li>
+                <li hidden>
                     <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-widgets"></i><span class="hide-menu">Extra</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li>
@@ -88,7 +120,7 @@
                         </li>
                     </ul>
                 </li>
-                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-arrange-send-backward"></i><span class="hide-menu">ตั้งค่า</span></a>
+                <li hidden> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-arrange-send-backward"></i><span class="hide-menu">ตั้งค่า</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="#">item 1.1</a></li>
                         <li><a href="#">item 1.2</a></li>

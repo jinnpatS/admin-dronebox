@@ -25,7 +25,7 @@
                     </ol>
                 </div>
                 <div class="">
-                    <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+                    
                 </div>
             </div>
             <!-- ============================================================== -->
@@ -34,56 +34,212 @@
             <!-- ============================================================== -->
             <!-- Stats box -->
             <!-- ============================================================== -->
+
             <div class="row">
-                <div class="col-lg-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex">
-                                <div class="m-r-20 align-self-center"><img src="../assets/images/icon/income.png" alt="Income" /></div>
-                                <div class="align-self-center">
-                                    <h6 class="text-muted m-t-10 m-b-0">รายได้ทั้งหมด</h6>
-                                    <h2 class="m-t-0">953,000</h2></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex">
-                                <div class="m-r-20 align-self-center"><img src="../assets/images/icon/expense.png" alt="Income" /></div>
-                                <div class="align-self-center">
-                                    <h6 class="text-muted m-t-10 m-b-0">จำนวนผู้ใช้งาน (ลูกค้า)</h6>
-                                    <h2 class="m-t-0">6,000</h2></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex">
-                                <div class="m-r-20 align-self-center"><img src="../assets/images/icon/assets.png" alt="Income" /></div>
-                                <div class="align-self-center">
-                                    <h6 class="text-muted m-t-10 m-b-0">จำนวนภาพที่ใช้ถูกประมวลผล</h6>
-                                    <h2 class="m-t-0">987,563</h2></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 col-6">
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="m-r-20 align-self-center"><img src="../assets/images/icon/staff.png" alt="Income" /></div>
                                 <div class="align-self-center">
-                                    <h6 class="text-muted m-t-10 m-b-0">Total Staff</h6>
-                                    <h2 class="m-t-0">987,563</h2></div>
+                                    <h6 class="text-muted m-t-10 m-b-0">Customer all</h6>
+                                    <h2 class="m-t-0">{{count_customer.count_customer}}</h2></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div class="m-r-20 align-self-center"><img src="../assets/images/icon/staff.png" alt="Income" /></div>
+                                <div class="align-self-center">
+                                    <h6 class="text-muted m-t-10 m-b-0">Customer buy package</h6>
+                                    <h2 class="m-t-0">{{count_customer.count_customer_buy_package}}</h2></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div class="m-r-20 align-self-center"><img src="../assets/images/icon/staff.png" alt="Income" /></div>
+                                <div class="align-self-center">
+                                    <h6 class="text-muted m-t-10 m-b-0">Customer free</h6>
+                                    <h2 class="m-t-0">{{count_customer.count_customer_free}}</h2></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div class="m-r-20 align-self-center"><img src="../assets/images/icon/staff.png" alt="Income" /></div>
+                                <div class="align-self-center">
+                                    <h6 class="text-muted m-t-10 m-b-0">Customer <span class="badge badge-success">new</span></h6>
+                                    <h2 class="m-t-0">{{count_customer.count_customer_new}}</h2></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+
+            <div class="row">
+                <div class="col-lg-2  col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div class="m-r-20 align-self-center"><img src="../assets/images/icon/expense.png" alt="Income" /></div>
+                                <div class="align-self-center mr--1">
+                                    <h6 class="text-muted m-t-10 m-b-0">Project</h6>
+                                    <h2 class="m-t-0">{{count_package.count_project}}</h2></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div class="m-r-20 align-self-center"><img src="../assets/images/icon/expense.png" alt="Income" /></div>
+                                <div class="align-self-center mr--1">
+                                    <h6 class="text-muted m-t-10 m-b-0">Project S</h6>
+                                    <h2 class="m-t-0">{{this.count_package.count_project_by_package_s}}</h2></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div class="m-r-20 align-self-center"><img src="../assets/images/icon/expense.png" alt="Income" /></div>
+                                <div class="align-self-center mr--1">
+                                    <h6 class="text-muted m-t-10 m-b-0">Project M</h6>
+                                    <h2 class="m-t-0">{{this.count_package.count_project_by_package_m}}</h2></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div class="m-r-20 align-self-center"><img src="../assets/images/icon/expense.png" alt="Income" /></div>
+                                <div class="align-self-center mr--1">
+                                    <h6 class="text-muted m-t-10 m-b-0">Project L</h6>
+                                    <h2 class="m-t-0">{{this.count_package.count_project_by_package_l}}</h2></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div class="m-r-20 align-self-center"><img src="../assets/images/icon/expense.png" alt="Income" /></div>
+                                <div class="align-self-center mr--1">
+                                    <h6 class="text-muted m-t-10 m-b-0">Project PRO</h6>
+                                    <h2 class="m-t-0">{{this.count_package.count_project_by_package_pro}}</h2></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div class="m-r-20 align-self-center"><img src="../assets/images/icon/expense.png" alt="Income" /></div>
+                                <div class="align-self-center mr--1">
+                                    <h6 class="text-muted m-t-10 m-b-0">Project Free</h6>
+                                    <h2 class="m-t-0">{{this.count_package.count_project_free}}</h2></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3 col-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div class="m-r-20 align-self-center"><img src="../assets/images/icon/assets.png" alt="Income" /></div>
+                                <div class="align-self-center">
+                                    <h6 class="text-muted m-t-10 m-b-0">Task</h6>
+                                    <h2 class="m-t-0">{{this.count_task.count_task}}</h2></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div class="m-r-20 align-self-center"><img src="../assets/images/icon/assets.png" alt="Income" /></div>
+                                <div class="align-self-center">
+                                    <h6 class="text-muted m-t-10 m-b-0">Task <span class="badge badge-success">Success</span> </h6>
+                                    <h2 class="m-t-0">{{this.count_task.count_task_40}}</h2></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div class="m-r-20 align-self-center"><img src="../assets/images/icon/assets.png" alt="Income" /></div>
+                                <div class="align-self-center">
+                                    <h6 class="text-muted m-t-10 m-b-0">Task <span class="badge badge-info">Processing</span> </h6>
+                                    <h2 class="m-t-0">{{this.count_task.count_task_20}}</h2></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div class="m-r-20 align-self-center"><img src="../assets/images/icon/assets.png" alt="Income" /></div>
+                                <div class="align-self-center">
+                                    <h6 class="text-muted m-t-10 m-b-0">Task <span class="badge badge-danger">Error</span> </h6>
+                                    <h2 class="m-t-0">{{this.count_task.count_task_30}}</h2></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6  col-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div class="m-r-20 align-self-center"><img src="../assets/images/icon/expense.png" alt="Income" /></div>
+                                <div class="align-self-center">
+                                    <h6 class="text-muted m-t-10 m-b-0"><span class="badge badge-success">Deposit</span></h6>
+                                    <h2 class="m-t-0">{{this.sum_usage.sum_deposit}}</h2></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6  col-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div class="m-r-20 align-self-center"><img src="../assets/images/icon/expense.png" alt="Income" /></div>
+                                <div class="align-self-center">
+                                    <h6 class="text-muted m-t-10 m-b-0"><span class="badge badge-danger">Withdraw</span></h6>
+                                    <h2 class="m-t-0">{{this.sum_usage.sum_withdraw}}</h2></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- ============================================================== -->
             <!-- Sales overview chart -->
             <!-- ============================================================== -->
@@ -96,33 +252,45 @@
                                     <h3 class="card-title m-b-5"><span class="lstick"></span>Sales Overview </h3>
                                 </div>
                                 <div class="ml-auto">
-                                    <select class="custom-select b-0">
+                                    <input [(ngModel)]="sales_overview_in_month" class="form-control" type="month" id="start" name="start"
+                                    min="2022-01" (change)="get_sales_overview()">
+                                    <!-- <select class="custom-select b-0">
                                         <option selected="">January 2017</option>
                                         <option value="1">February 2017</option>
                                         <option value="2">March 2017</option>
                                         <option value="3">April 2017</option>
-                                    </select>
+                                    </select> -->
                                 </div>
                             </div>
-                            <div id="sales-overview2" class="p-relative" style="height:360px;"></div>
+                            <div echarts [options]="chart_sales_overview" style="height:360px;"></div>
+
+                            <!-- <div id="sales-overview2" class="p-relative" style="height:360px;"></div> -->
                             <div class="stats-bar">
                                 <div class="row text-center">
+                                    <div *ngFor="let item of sales_overview"
+                                    class="col-lg-3 col-md-3">
+                                        <div class="p-16">
+                                            <h6 class="m-b-0">Size {{item.size_item}}</h6>
+                                            <h3 class="m-b-0">฿{{item.sum_month}}</h3>
+                                        </div>
+                                    </div>
+
                                     <div class="col-lg-4 col-md-4">
                                         <div class="p-20">
-                                            <h6 class="m-b-0">Total Sales</h6>
-                                            <h3 class="m-b-0">$10,345</h3>
+                                            <h6 class="m-b-0">Total</h6>
+                                            <h3 class="m-b-0">฿{{sales_overview.sum_all}}</h3>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-4">
                                         <div class="p-20">
                                             <h6 class="m-b-0">This Month</h6>
-                                            <h3 class="m-b-0">$7,589</h3>
+                                            <h3 class="m-b-0">฿{{sales_overview.sum_month}}</h3>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-4">
                                         <div class="p-20">
                                             <h6 class="m-b-0">This Week</h6>
-                                            <h3 class="m-b-0">$1,476</h3>
+                                            <h3 class="m-b-0">฿{{sales_overview.sum_week}}</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -135,36 +303,91 @@
                         <div class="card-body">
                             <div class="d-flex">
                                 <div>
-                                    <h3 class="card-title m-b-5"><span class="lstick"></span>Sales Overview </h3>
+                                    <h3 class="card-title m-b-5"><span class="lstick"></span>Task Processing Time</h3>
                                 </div>
                                 <div class="ml-auto">
-                                    <select class="custom-select b-0">
+                                    <input type="date" name="" id="" class="form-control" min="2023-01-01" [(ngModel)]="task_process_time_in_date" (change)="get_task_process_time()">
+                                    <!-- <select class="custom-select b-0">
                                         <option selected="">January 2017</option>
                                         <option value="1">February 2017</option>
                                         <option value="2">March 2017</option>
                                         <option value="3">April 2017</option>
-                                    </select>
+                                    </select> -->
                                 </div>
                             </div>
-                            <div id="ct-sales3-chart" class="p-relative" style="height:360px;"></div>
+                            <div echarts [options]="chart_task_process_time" style="height:360px;"></div>
+
+                            <!-- <div id="ct-sales3-chart" class="p-relative" style="height:360px;"></div> -->
                             <div class="stats-bar">
                                 <div class="row text-center">
                                     <div class="col-lg-4 col-md-4">
                                         <div class="p-20">
-                                            <h6 class="m-b-0">Total Sales</h6>
-                                            <h3 class="m-b-0">$10,345</h3>
+                                            <h6 class="m-b-0">Total Task</h6>
+                                            <h3 class="m-b-0">{{task_process_time_detail.sum_count}} task</h3>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-4">
                                         <div class="p-20">
-                                            <h6 class="m-b-0">This Month</h6>
-                                            <h3 class="m-b-0">$7,589</h3>
+                                            <h6 class="m-b-0">Total usage</h6>
+                                            <h3 class="m-b-0">{{task_process_time_detail.sum_process}} pic</h3>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-4">
                                         <div class="p-20">
-                                            <h6 class="m-b-0">This Week</h6>
-                                            <h3 class="m-b-0">$1,476</h3>
+                                            <h6 class="m-b-0">AVG</h6>
+                                            <h3 class="m-b-0">
+                                                <ng-container *ngIf="isNumber(task_process_time_detail.sum_process_avg);else else_avg_nan1">0</ng-container>
+                                                <ng-template #else_avg_nan1>{{task_process_time_detail.sum_process_avg}} pic/task</ng-template>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div>
+                                    <h3 class="card-title m-b-5"><span class="lstick"></span>Task Processing Date</h3>
+                                </div>
+                                <div class="ml-auto">
+                                    <input type="date" name="" id="" class="form-control" min="2023-01-01" 
+                                    [(ngModel)]="task_process_date_in_date" (change)="get_task_process_time()">
+                                    <!-- <select class="custom-select b-0">
+                                        <option selected="">January 2017</option>
+                                        <option value="1">February 2017</option>
+                                        <option value="2">March 2017</option>
+                                        <option value="3">April 2017</option>
+                                    </select> -->
+                                </div>
+                            </div>
+                            <div echarts [options]="chart_task_process_date" style="height:360px;"></div>
+
+                            <!-- <div id="ct-sales3-chart" class="p-relative" style="height:360px;"></div> -->
+                            <div class="stats-bar">
+                                <div class="row text-center">
+                                    <div class="col-lg-4 col-md-4">
+                                        <div class="p-20">
+                                            <h6 class="m-b-0">Total Task</h6>
+                                            <h3 class="m-b-0">{{task_process_time_detail.sum_count}} task</h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4">
+                                        <div class="p-20">
+                                            <h6 class="m-b-0">Total usage</h6>
+                                            <h3 class="m-b-0">{{task_process_time_detail.sum_process}} pic</h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4">
+                                        <div class="p-20">
+                                            <h6 class="m-b-0">AVG</h6>
+                                            <h3 class="m-b-0">
+                                                <ng-container *ngIf="isNumber(task_process_time_detail.sum_process_avg);else else_avg_nan1">0</ng-container>
+                                                <ng-template #else_avg_nan1>{{task_process_time_detail.sum_process_avg}} pic/task</ng-template>
+                                            </h3>
                                         </div>
                                     </div>
                                 </div>
@@ -173,7 +396,8 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            
+            <div class="row" hidden>
                 <div class="col-lg-8">
                     <div class="card">
                         <div class="card-body">
@@ -244,7 +468,7 @@
             <!-- ============================================================== -->
             <!-- Projects of the month -->
             <!-- ============================================================== -->
-            <div class="row">
+            <div class="row" hidden>
                 <div class="col-lg-6 col-md-12">
                     <div class="card">
                         <div class="card-body">
@@ -416,61 +640,6 @@
             <!-- End Page Content -->
             <!-- ============================================================== -->
             <!-- ============================================================== -->
-            <!-- Right sidebar -->
-            <!-- ============================================================== -->
-            <!-- .right-sidebar -->
-            <div class="right-sidebar">
-                <div class="slimscrollright">
-                    <div class="rpanel-title"> Service Panel <span><i class="ti-close right-side-toggle"></i></span> </div>
-                    <div class="r-panel-body">
-                        <ul id="themecolors" class="m-t-20">
-                            <li><b>With Light sidebar</b></li>
-                            <li><a href="javascript:void(0)" data-theme="default" class="default-theme">1</a></li>
-                            <li><a href="javascript:void(0)" data-theme="green" class="green-theme">2</a></li>
-                            <li><a href="javascript:void(0)" data-theme="red" class="red-theme">3</a></li>
-                            <li><a href="javascript:void(0)" data-theme="blue" class="blue-theme working">4</a></li>
-                            <li><a href="javascript:void(0)" data-theme="purple" class="purple-theme">5</a></li>
-                            <li><a href="javascript:void(0)" data-theme="megna" class="megna-theme">6</a></li>
-                            <li class="d-block m-t-30"><b>With Dark sidebar</b></li>
-                            <li><a href="javascript:void(0)" data-theme="default-dark" class="default-dark-theme">7</a></li>
-                            <li><a href="javascript:void(0)" data-theme="green-dark" class="green-dark-theme">8</a></li>
-                            <li><a href="javascript:void(0)" data-theme="red-dark" class="red-dark-theme">9</a></li>
-                            <li><a href="javascript:void(0)" data-theme="blue-dark" class="blue-dark-theme">10</a></li>
-                            <li><a href="javascript:void(0)" data-theme="purple-dark" class="purple-dark-theme">11</a></li>
-                            <li><a href="javascript:void(0)" data-theme="megna-dark" class="megna-dark-theme ">12</a></li>
-                        </ul>
-                        <ul class="m-t-20 chatonline">
-                            <li><b>Chat option</b></li>
-                            <li>
-                                <a href="javascript:void(0)"><img src="../assets/images/users/1.jpg" alt="user-img" class="img-circle"> <span>Varun Dhavan <small class="text-success">online</small></span></a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"><img src="../assets/images/users/2.jpg" alt="user-img" class="img-circle"> <span>Genelia Deshmukh <small class="text-warning">Away</small></span></a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"><img src="../assets/images/users/3.jpg" alt="user-img" class="img-circle"> <span>Ritesh Deshmukh <small class="text-danger">Busy</small></span></a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"><img src="../assets/images/users/4.jpg" alt="user-img" class="img-circle"> <span>Arijit Sinh <small class="text-muted">Offline</small></span></a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"><img src="../assets/images/users/5.jpg" alt="user-img" class="img-circle"> <span>Govinda Star <small class="text-success">online</small></span></a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"><img src="../assets/images/users/6.jpg" alt="user-img" class="img-circle"> <span>John Abraham<small class="text-success">online</small></span></a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"><img src="../assets/images/users/7.jpg" alt="user-img" class="img-circle"> <span>Hritik Roshan<small class="text-success">online</small></span></a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"><img src="../assets/images/users/8.jpg" alt="user-img" class="img-circle"> <span>Pwandeep rajan <small class="text-success">online</small></span></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Right sidebar -->
             <!-- ============================================================== -->
         </div>
         <!-- ============================================================== -->
@@ -479,7 +648,7 @@
         <!-- ============================================================== -->
         <!-- footer -->
         <!-- ============================================================== -->
-        <footer class="footer"> © 2017 Admin Pro by wrappixel.com </footer>
+        <footer class="footer"> © 2022 Admin Dronebox by MAPEDIA </footer>
         <!-- ============================================================== -->
         <!-- End footer -->
         <!-- ============================================================== -->

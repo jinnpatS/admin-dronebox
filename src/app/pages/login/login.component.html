@@ -1,0 +1,75 @@
+<!-- new login -->
+<div class="wrapper">
+    <div class=" authincation">
+        <div class="section-authentication-signin authincation-content d-flex align-items-center justify-content-center my-0 my-lg-0">
+            <div class="container-fluid">
+                <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
+                    <div class="col mx-auto">
+                        <div class="mb-4 text-center">
+                            <img src="assets/images/Dronebox_Logo_typo_white.png" width="180" alt="" />
+                        </div>
+                        <div class="card card-color rounded-4">
+                            <div class="card-body">
+                                <div class="p-4 rounded">
+                                    <div class="text-center">
+                                        <h3 class="txt-login"> Log in</h3>
+                                        <!-- <p> Don’t have an account? <a (click)="register()" class="ml-3" style="cursor:pointer;">Create your account</a></p> -->
+                                    </div>
+                                    <div class="d-grid ">
+                                        <div class="d-flex justify-content-center align-items-center">
+                                            <!-- <asl-google-signin-button type='standard' size='large' theme="filled_blue" shape='circle' width="250"></asl-google-signin-button> -->
+                                        </div>
+    
+                                        <!-- <div class="d-flex justify-content-center align-items-center mt-3">
+                                            <button type="button" class="btn btn-primary facebook-button" (click)="loginWithFacebook()">
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            <img src="https://static.xx.fbcdn.net/rsrc.php/v3/y3/r/U7MAWJlE6hZ.png" style="margin-right: .8rem;" >
+                                                        </td>
+                                                        <td>
+                                                            Log in with Facebook
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </button>
+                                        </div> -->
+                                    </div>
+    
+    
+    
+                                    <!-- <div class="separator mt-3 mb-3 txt-darkblue">or connect with</div> -->
+    
+                                    <div class="form-body">
+                                        <form class="row g-3 d-flex justify-content-center align-items-center">
+                                            <div class="col-12">
+                                                <label for="inputEmailAddress" class="form-label">Username</label>
+                                                <input type="email" class="form-control" id="inputEmailAddress" placeholder="Username" name="username" [(ngModel)]="username" >
+                                            </div>
+                                            <div class="col-12">
+                                                <label for="inputChoosePassword" class="form-label">Password</label>
+                                                <div class="input-group" id="show_hide_password">
+                                                    <input type="password" class="form-control border-end-0" id="inputChoosePassword" placeholder="Enter Password" name="password" [(ngModel)]="password">
+                                                     <a class="input-group-text">
+                                                        <i class='bx bx-hide'></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+    
+                                            <div class="col-7 mt-4" style="text-align: center;">
+                                                <div class="d-grid">
+                                                    <button type="submit" class="btn btn-success" (click)="login()"><i class="bx bxs-lock-open"></i>Log in</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--end row-->
+            </div>
+        </div>
+    </div>
+</div>
